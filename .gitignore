@@ -1,0 +1,14 @@
+*.yaml
+.vscode/
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+/media
+# django migrations 
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+secret.json
