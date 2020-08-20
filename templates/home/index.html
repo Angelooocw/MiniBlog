@@ -3,6 +3,14 @@
 
 {% load  static %}
 
+{% block title %}
+    {{ home.title }}
+{% endblock title %}
+
+{% block description %}
+    <meta name="description" content="{{ home.description }}">
+{% endblock description %}
+
 {% block content %}
 
 {% include "includes/header.html" %}
@@ -11,11 +19,11 @@
     <!-- primer bloque del home -->
     <div class="grid-x grid-margin-x" style="margin-top: 1em;">
         <!-- bloque de blog principal -->
-        <div class="cell small-12 large-6">
-            <div class="card" style="width: 100%;">
-                <img src="{{ portada.image.url }}">
+        <div class="cell large-6" >
+            <div class="card">
+                <img src="{{ portada.image.url }}" style="width: 100%;">
                 <div class="card-section">
-                  <h4><a href="{% url 'entrada_app:entry-detail' portada.id %}">{{ portada.title }}</a></h4>
+                  <h4><a href="{% url 'entrada_app:entry-detail' portada.slug %}">{{ portada.title }}</a></h4>
                   <p>{{ portada.resume | truncatechars:120 }}</p>
                 </div>
             </div>
@@ -24,13 +32,13 @@
 
         <!-- bloque de blog principal -->
         <div class="cell large-6">
-            <div class="cell small-12 large-6 grid-x grid-margin-x">
+            <div class="grid-x grid-margin-x small-up-2 large-up-2">
                 {% for entrada in entradas_home %}
-                <div class="cell small-12 large-6">
+                <div class="cell">
                     <div class="card" style="width: 100%;">
                         <img src="{{ entrada.image.url }}" style="height: auto;">
                         <div class="card-section">
-                        <h5><a href="{% url 'entrada_app:entry-detail' entrada.id %}">{{ entrada.title | truncatechars:40 }}</a></h5>
+                        <h5><a href="{% url 'entrada_app:entry-detail' entrada.slug %}">{{ entrada.title | truncatechars:40 }}</a></h5>
                         </div>
                     </div>
                 </div>
