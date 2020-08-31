@@ -5,8 +5,7 @@
 __pycache__
 myvenv
 db.sqlite3
-/static
-/media
+/media/*/*
 # django migrations 
 **/migrations/**
 !**/migrations
